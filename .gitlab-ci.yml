@@ -1,6 +1,7 @@
 stages:
         #  - test
 #  - build
+  - mirror
   - deploy
 
     #lint:
@@ -10,6 +11,14 @@ stages:
 #  stage: build
 #  script:
 #    - docker build -t sockleblu/blog_frontend .
+
+sync_to_github:
+  stage: mirror
+  tags:
+    - pena
+    - linux
+  script:
+    - git push github
 
 run:
   stage: deploy
