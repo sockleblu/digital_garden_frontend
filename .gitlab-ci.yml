@@ -1,0 +1,23 @@
+stages:
+        #  - test
+#  - build
+  - deploy
+
+    #lint:
+    #stage: test
+
+#compile:
+#  stage: build
+#  script:
+#    - docker build -t sockleblu/blog_frontend .
+
+run:
+  stage: deploy
+  tags:
+    - blog
+  script:
+    - cd /vagrant/export && sudo chef-client -z
+    - cd /var/www/blog/master && yarn install
+    - cd /var/www/blog/master && yarn run build
+    - systemctl restart blog_frontend
+
