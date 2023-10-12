@@ -18,7 +18,9 @@ sync_to_github:
     - pena
     - linux
   script:
-    - git remote add github git@github.com:sockleblu/digital_garden_frontend.git
+    - if [[ $(git remote -v | grep github) ]]; then
+    -     git remote add github git@github.com:sockleblu/digital_garden_frontend.git
+    - fi
     - git push github HEAD:refs/heads/master
 
 run:
