@@ -18,7 +18,7 @@ sync_to_github:
     - pena
     - linux
   script:
-    - git push github
+    - git push github HEAD:master
 
 run:
   stage: deploy
