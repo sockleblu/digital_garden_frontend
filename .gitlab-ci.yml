@@ -20,7 +20,7 @@ sync_to_github:
   script:
     - if [[ $(git remote -v | grep github) ]]; then
     -     echo 'github already added as remote'
-      else
+    - else
     -     git remote add github git@github.com:sockleblu/digital_garden_frontend.git
     - fi
     - git push github HEAD:refs/heads/master
