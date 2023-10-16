@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     apollo: {
         clients: {
             default: {
-                httpEndpoint: 'http://localhost:1337/graphql'
+                httpEndpoint: 'https://kylekennedy.dev:1337/graphql'
             }
         },
     },
