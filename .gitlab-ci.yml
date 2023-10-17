@@ -33,5 +33,5 @@ run:
     - cd /vagrant/export && sudo chef-client -z
     - cd /var/www/blog/master && yarn install
     - cd /var/www/blog/master && yarn run build
-    - systemctl restart blog_frontend
+    - sudo systemctl restart blog_frontend
 
