@@ -2,6 +2,9 @@
 //import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+    runtimeConfig: {
+
+    },
     modules: [
         '@nuxtjs/apollo',
         '@nuxt/content'
@@ -9,7 +12,10 @@ export default defineNuxtConfig({
     apollo: {
         clients: {
             default: {
-                httpEndpoint: 'https://kylekennedy.dev:1337/graphql'
+                httpEndpoint: 
+                    process.env.NODE_ENV === 'development'
+                        ? 'http://localhost:1337/graphql'
+                        : 'https://kylekennedy.dev:1337/graphql'
             }
         },
     },
