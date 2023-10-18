@@ -15,7 +15,7 @@ export default defineNuxtConfig({
                 httpEndpoint: 
                     process.env.NODE_ENV === 'development'
                         ? 'http://localhost:1337/graphql'
-                        : 'http://kylekennedy.dev:1337/graphql'
+                        : 'https://kylekennedy.dev:1337/graphql'
             }
         },
     },
