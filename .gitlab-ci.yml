@@ -30,7 +30,8 @@ run:
   tags:
     - blog
   script:
-    - cd /vagrant/export && sudo chef-client -z
+    - cd /home/vagrant/export/.cinc && sudo chef-client -z
+    - source /home/gitlab-runner/.nvm/nvm.sh
     - cd /var/www/blog/master && yarn install
     - cd /var/www/blog/master && yarn run build
     - sudo systemctl restart blog_frontend
