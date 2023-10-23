@@ -7,23 +7,20 @@ export default defineNuxtConfig({
     },
     modules: [
         '@nuxtjs/apollo',
-        '@nuxt/content'
+        '@nuxt/content',
     ],
     apollo: {
         clients: {
             default: {
-                httpEndpoint: 
-                    process.env.NODE_ENV === 'development'
-                        ? 'https://kylekennedy.dev:1337/graphql'
-                        : 'https://kylekennedy.dev:1337/graphql'
+                httpEndpoint: 'https://kylekennedy.dev:1337/graphql'
             }
         },
     },
     vite: {
         server: {
             hmr: {
-                protocol: "wss",
-                clientPort: 443,
+                protocol: process.env.NODE_ENV === "production" ? "wss" : "ws",
+                clientPort: process.env.NODE_ENV === "production" ? 443 : 4000,
                 path: "hmr/"
             }
         }

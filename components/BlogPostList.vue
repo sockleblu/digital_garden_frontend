@@ -46,6 +46,7 @@ const query = gql`
 
 const { data: allArticles } = await useAsyncQuery(query)
 const articles = allArticles.value.allArticles
+console.log('articles: ' + JSON.stringify(articles)) 
 </script>
 
 <style>
