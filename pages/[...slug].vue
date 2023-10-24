@@ -50,7 +50,7 @@ const query = gql`
 
 const variables = { "slug": path.replace('/', '') }
 
-const { data: articleRead } = await useAsyncQuery(query, variables)
+const { data: articleRead } = await useQuery(query, variables)
 const article = articleRead.value.article
 </script>
 
