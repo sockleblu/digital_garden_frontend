@@ -50,7 +50,7 @@ const query = gql`
 
 const variables = { "slug": path.replace('/', '') }
 
-const { result: article } = useQuery(query, variables)
+const { data: article } = await useAsyncQuery(query, variables)
 
 //const article = ref()
 
