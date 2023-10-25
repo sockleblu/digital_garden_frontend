@@ -3,7 +3,7 @@
     <section class="articles">
       <div class="column is-8 is-offset-2">
         <div
-          v-for="article in articles"
+          v-for="article in allArticles.allArticles"
           :key="article.slug"
           class="card article"
         >
@@ -37,6 +37,7 @@ const query = gql`
             id
             title
             slug
+            content
             user {
                 username
             }
@@ -45,8 +46,8 @@ const query = gql`
 `
 
 const { data: allArticles } = await useAsyncQuery(query)
-const articles = allArticles.value.allArticles
-console.log('articles: ' + JSON.stringify(articles)) 
+//const articles = allArticles.value.allArticles
+//console.log('articles: ' + JSON.stringify(articles)) 
 </script>
 
 <style>

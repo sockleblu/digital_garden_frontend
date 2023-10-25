@@ -1,11 +1,11 @@
 <template>
   <main>
     <Main>
-      <template v-slot:default>{{ article.title }}</template>
+      <template v-slot:default>{{ article.article.title }}</template>
 
       <template v-slot:subtitle>
         <BlogPostMeta
-          :author="article.title"
+          :author="article.article.author"
           color="dark"
         />
       </template>
@@ -16,7 +16,7 @@
           <section class="blog-post-card card article">
             <div class="card-content">
               <div class="content article-body is-size-5">
-                <span v-html="article.content">
+                <span v-html="article.article.content">
                 </span>
               </div>
             </div>
@@ -31,7 +31,7 @@
 
 const { path } = useRoute()
 console.log("Path is " + path)
-
+// 
 const query = gql`
   query ArticleQuery($slug: String!) {
     article(slug: $slug) {
@@ -50,8 +50,15 @@ const query = gql`
 
 const variables = { "slug": path.replace('/', '') }
 
-const { data: articleRead } = await useQuery(query, variables)
-const article = articleRead.value.article
+const { result: article } = useQuery(query, variables)
+
+//const article = ref()
+
+//const { onResult, onError } = useQuery(query, variables);
+
+//onResult((result) => (article.value = result.data));
+//onError((err) => (article.value = err));
+
 </script>
 
 <style>
