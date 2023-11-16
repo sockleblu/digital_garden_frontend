@@ -2,6 +2,11 @@
 //import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+    routeRules: {
+        '/**': {
+            cors: true
+        }
+    },
     build: {
         transpile: [
             'tslib'
