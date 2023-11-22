@@ -31,23 +31,43 @@
 
 <script lang="ts" setup>
 
-const query = gql`
-  query AllArticlesQuery {
-        allArticles {
-            id
-            title
-            slug
-            content
-            user {
-                username
-            }
+//if (this.slug) {
+//const query = gql`
+//  query ArticleQuery($slug: String!) {
+//    article(slug: $slug) {
+//      id
+//      title
+//      slug
+//      content
+//      user {
+//          id
+//          username
+//          email
+//        }
+//      }
+//    }
+//  `
+//}
+//else {
+  const query = gql`
+    query AllArticlesQuery {
+      allArticles {
+        id
+        title
+        slug
+        content
+        user {
+          username
         }
+      }
     }
-`
+  `
+//}
 
 const { data: allArticles } = await useAsyncQuery(query)
 //const articles = allArticles.value.allArticles
-//console.log('articles: ' + JSON.stringify(articles)) 
+//console.log('articles: ' + JSON.stringify(articles))
+
 </script>
 
 <style>
