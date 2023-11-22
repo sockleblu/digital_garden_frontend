@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <section class="main is-info is-medium is-bold">
     <div class="main-body">
@@ -12,6 +10,8 @@
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style>
 .main-body {

@@ -24,6 +24,9 @@ sync_to_github:
     -     git remote add github git@github.com:sockleblu/digital_garden_frontend.git
     - fi
     - git push github HEAD:refs/heads/master
+  only:
+    refs:
+      - master
 
 run:
   stage: deploy
@@ -35,4 +38,8 @@ run:
     - cd /var/www/blog/master && yarn install
     - cd /var/www/blog/master && yarn run build
     - sudo systemctl restart blog_frontend
+  only:
+    refs:
+      - master
+
 
