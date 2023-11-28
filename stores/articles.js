@@ -6,7 +6,11 @@ export const currentArticles = defineStore('currentArticles', {
     }),
     actions: {
         getAllArticles() {
+
+        },
+        getArticleBySlug() {
             
         }
-    }
+    },
+
 })
