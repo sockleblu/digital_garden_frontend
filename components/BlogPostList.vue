@@ -3,7 +3,7 @@
     <section class="articles">
       <div class="column is-8 is-offset-2">
         <div
-          v-for="article in allArticles.allArticles"
+          v-for="article in articlesByTags.articlesByTags"
           :key="article.slug"
           class="card article"
         >
@@ -31,43 +31,32 @@
 
 <script lang="ts" setup>
 
-//if (this.slug) {
-//const query = gql`
-//  query ArticleQuery($slug: String!) {
-//    article(slug: $slug) {
-//      id
-//      title
-//      slug
-//      content
-//      user {
-//          id
-//          username
-//          email
-//        }
-//      }
-//    }
-//  `
-//}
-//else {
-  const query = gql`
-    query AllArticlesQuery {
-      allArticles {
-        id
-        title
-        slug
-        content
-        user {
-          username
+const props = defineProps<{
+  tags: String[]
+}>()
+
+const tagsInput = []
+
+for (const tag of props.tags) { tagsInput.push({"tag": tag})}
+
+const variables = { "tagsInput": tagsInput}
+
+const query = gql`
+  query ArticlesByTags($tagsInput: [TagInput!]!) {
+        articlesByTags(tagsInput: $tagsInput) {
+            id
+            title
+            slug
+            user {
+                username
+            }
         }
-      }
     }
-  `
-//}
+`
 
-const { data: allArticles } = await useAsyncQuery(query)
-//const articles = allArticles.value.allArticles
-//console.log('articles: ' + JSON.stringify(articles))
-
+const { data: articlesByTags } = await useAsyncQuery(query, variables)
+const articles = articlesByTags
+console.log('articles: ' + JSON.stringify(articles))
 </script>
 
 <style>

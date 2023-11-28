@@ -1,8 +1,5 @@
 <template>
   <main>
-    <BlogPostList></BlogPostList>
-    <p>
-        Test paragraph
-    </p>
+    <BlogPostList :tags="['travel']"></BlogPostList>
   </main>
 </template>
