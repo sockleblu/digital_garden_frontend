@@ -1,5 +1,5 @@
 <template>
     <main>
-      <BlogPostList :tags="['programming']"></BlogPostList>
+      <BlogPostList :tags="['programming', 'digiden']"></BlogPostList>
     </main>
   </template>
