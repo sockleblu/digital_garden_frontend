@@ -53,7 +53,7 @@ a:hover {
 }
 .articles {
   margin: 5rem 0;
-  margin-top: -300px;
+  margin-top: -400px;
 }
 .articles .content p {
   line-height: 1.9;

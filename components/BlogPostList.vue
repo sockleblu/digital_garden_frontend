@@ -61,6 +61,10 @@ console.log('articles: ' + JSON.stringify(articles))
 
 <style>
 .title {
-  padding-top: 2rem;
+  padding-top: 5rem;
+}
+
+.articles {
+  padding-top: 10rem;
 }
 </style>
