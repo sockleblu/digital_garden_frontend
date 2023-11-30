@@ -33,7 +33,7 @@ run:
   tags:
     - blog
   script:
-    - cd /opt/export/.cinc && sudo chef-client -z
+    - cd /opt/blog/export/.cinc && sudo chef-client -z
     - source /home/gitlab-runner/.nvm/nvm.sh
     - cd /var/www/blog/master && yarn install
     - cd /var/www/blog/master && yarn run build
