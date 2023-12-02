@@ -3,7 +3,7 @@
     <section class="articles">
       <div class="column is-8 is-offset-2">
         <div
-          v-for="article in articlesByTags.articlesByTags"
+          v-for="article in articlesByTags?.articlesByTags"
           :key="article.slug"
           class="card article"
         >
@@ -64,7 +64,10 @@ type Articles = {
   }[]
 }
 
-const { data: articlesByTags } = await useAsyncQuery<Articles>(query, variables)
+const { result: articlesByTags } = useQuery<Articles>(
+  query, 
+  variables,
+)
 //const articles = articlesByTags
 console.log('articles: ' + JSON.stringify(articlesByTags))
 </script>
