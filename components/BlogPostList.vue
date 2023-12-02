@@ -53,10 +53,20 @@ const query = gql`
         }
     }
 `
+type Articles = {
+  articlesByTags: {
+    id?: string;
+    title: string;
+    slug: string;
+    user: {
+      username: string;
+    }
+  }[]
+}
 
-const { data: articlesByTags } = await useAsyncQuery(query, variables)
-const articles = articlesByTags
-console.log('articles: ' + JSON.stringify(articles))
+const { data: articlesByTags } = await useAsyncQuery<Articles>(query, variables)
+//const articles = articlesByTags
+console.log('articles: ' + JSON.stringify(articlesByTags))
 </script>
 
 <style>
