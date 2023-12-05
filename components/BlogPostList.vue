@@ -3,7 +3,7 @@
     <section class="articles">
       <div class="column is-8 is-offset-2">
         <div
-          v-for="article in articlesByTags?.articlesByTags"
+          v-for="article in articles?.articlesByTags"
           :key="article.slug"
           class="card article"
         >
@@ -31,23 +31,6 @@
 
 <script lang="ts" setup>
 
-const props = defineProps<{
-  tags: String[]
-  //articlesByTags: Object[]
-}>()
-
-const query = gql`
-  query ArticlesByTags($tagsInput: [TagInput!]!) {
-        articlesByTags(tagsInput: $tagsInput) {
-            id
-            title
-            slug
-            user {
-                username
-            }
-        }
-    }
-`
 type Articles = {
   articlesByTags: {
     id?: string;
@@ -59,23 +42,12 @@ type Articles = {
   }[]
 }
 
-const cache = false
-
-const options = { 
-  fetchPolicy: 'network-only',
-  prefetch: false
-}
-
-const tagsInput = []
-
-for (const tag of props.tags) { tagsInput.push({"tag": tag})}
-
-const variables = { "tagsInput": tagsInput}
-
-const { result: articlesByTags } = useQuery<Articles>( query, variables, { fetchPolicy: 'network-only', prefetch: false } )
-
-//const articles = articlesByTags
-console.log('articles: ' + JSON.stringify(articlesByTags))
+const props = defineProps<{
+  //articles: String[]
+  articles?: {
+    type: Articles
+  }
+}>()
 </script>
 
 <style>
