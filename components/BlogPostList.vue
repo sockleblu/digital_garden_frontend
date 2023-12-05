@@ -72,8 +72,6 @@ for (const tag of props.tags) { tagsInput.push({"tag": tag})}
 
 const variables = { "tagsInput": tagsInput}
 
-const articleByTags = ref()
-
 const { result: articlesByTags } = useQuery<Articles>( query, variables, { fetchPolicy: 'network-only', prefetch: false } )
 
 //const articles = articlesByTags
