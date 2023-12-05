@@ -18,13 +18,20 @@ export default defineNuxtConfig({
     modules: [
         '@nuxtjs/apollo',
         '@nuxt/content',
+        //'@nuxt/types',
         '@pinia/nuxt',
     ],
     apollo: {
         clients: {
             default: {
-                httpEndpoint: process.env.NODE_ENV == 'production' ? 'https://kylekennedy.dev:1337/graphql' : 'https://localhost:1337/graphql'
-            }
+                httpEndpoint: process.env.NODE_ENV == 'production' ? 'https://kylekennedy.dev:1337/graphql' : 'https://localhost:1337/graphql',
+                defaultOptions: {
+                    //prefetch: false,
+                    query: {
+                        fetchPolicy: 'no-cache',
+                      },
+                }
+            },
         },
     },
     vite: {

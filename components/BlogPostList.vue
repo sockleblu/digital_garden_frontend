@@ -33,13 +33,8 @@
 
 const props = defineProps<{
   tags: String[]
+  //articlesByTags: Object[]
 }>()
-
-const tagsInput = []
-
-for (const tag of props.tags) { tagsInput.push({"tag": tag})}
-
-const variables = { "tagsInput": tagsInput}
 
 const query = gql`
   query ArticlesByTags($tagsInput: [TagInput!]!) {
@@ -64,10 +59,23 @@ type Articles = {
   }[]
 }
 
-const { result: articlesByTags } = useQuery<Articles>(
-  query, 
-  variables,
-)
+const cache = false
+
+const options = { 
+  fetchPolicy: 'network-only',
+  prefetch: false
+}
+
+const tagsInput = []
+
+for (const tag of props.tags) { tagsInput.push({"tag": tag})}
+
+const variables = { "tagsInput": tagsInput}
+
+const articleByTags = ref()
+
+const { result: articlesByTags } = useQuery<Articles>( query, variables, { fetchPolicy: 'network-only', prefetch: false } )
+
 //const articles = articlesByTags
 console.log('articles: ' + JSON.stringify(articlesByTags))
 </script>
