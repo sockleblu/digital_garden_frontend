@@ -6,9 +6,9 @@ const isMobileNavOpen = ref(false)
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <nuxt-link to="/" class="navbar-item has-text-weight-bold is-size-5">
+        <NuxtLink to="/" class="navbar-item has-text-weight-bold is-size-5">
           Digital Garden
-        </nuxt-link>
+        </NuxtLink>
         <nuxt-link to="/music" class="navbar-item has-text-weight-bold is-size-5">
           Music
         </nuxt-link>
@@ -24,9 +24,9 @@ const isMobileNavOpen = ref(false)
         <nuxt-link to="/news" class="navbar-item has-text-weight-bold is-size-5">
           News
         </nuxt-link>
-        <nuxt-link to="/programming" class="navbar-item has-text-weight-bold is-size-5">
+        <NuxtLink to="/programming" noPrefetch class="navbar-item has-text-weight-bold is-size-5">
           Programming
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </div>
   </nav>
