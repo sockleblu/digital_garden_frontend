@@ -45,7 +45,8 @@ type Articles = {
 const props = defineProps<{
   //articles: String[]
   articles?: {
-    type: Articles
+    type: Articles,
+    required: true
   }
 }>()
 </script>
