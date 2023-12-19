@@ -1,7 +1,7 @@
 <template>
   <main>
     <Main>
-        <template v-slot:default>Mandolin and Rhythm</template>
+        <template v-slot:default>There and Back Again</template>
         <template v-slot:subtitle></template>
     </Main>
     <div class="container">
