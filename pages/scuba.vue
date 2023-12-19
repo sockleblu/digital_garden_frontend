@@ -1,7 +1,7 @@
 <template>
   <main>
     <Main>
-        <template v-slot:default>Bridger of Worlds</template>
+        <template v-slot:default>Surface Tension</template>
         <template v-slot:subtitle></template>
     </Main>
     <div class="container">
@@ -16,7 +16,7 @@
                 <iframe 
                   width="560" 
                   height="315" 
-                  src="https://www.youtube.com/embed/aEKjQK-jWtQ?si=nz92xffUrySzqvdh" 
+                  src="https://www.youtube.com/embed/aEKjQK-jWtQ?si=-_y7zM337D2o0CgC" 
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
